@@ -1,0 +1,98 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="Page_Body">
+
+
+  <form [formGroup]="BasicDetails"  autocomplete="off" novalidate >
+    
+    <h3 id="Form_Heading">Enter Basic Details </h3>
+value:{{BasicDetails.value}};
+    <label for="Employee_Name">
+     <h2 id="Input_Heading">Name:</h2>  
+      <input style="margin-top:5px;" placeholder="Enter Employee Name:" class="Form_Inputs" type="text" id="Employee_Name"
+        formControlName="Employee_Name">
+    </label><br>
+  <div *ngIf="BasicDetails.controls.Employee_Name.touched && BasicDetails.controls.Employee_Name.errors">
+      <div *ngIf="BasicDetails.controls.Employee_Name.errors.required">Name is required</div> 
+      <div *ngIf="BasicDetails.controls.Employee_Name.errors.minlength">Name must be 4 chars</div> 
+      <div *ngIf="BasicDetails.controls.Employee_Name.errors.maxlength">Name is more than 60 chracters</div> 
+  </div>
+      
+    <label for="Employee_Phone">
+      <h2 id="Input_Heading">Employee Phone NO.:</h2>
+      <input type="text" id="Employee_Phone" placeholder="Phone Number:" class="Form_Inputs"
+        formControlName="Employee_Phone" >
+    </label>
+    <div *ngIf="BasicDetails.controls.Employee_Phone.touched && BasicDetails.controls.Employee_Phone.errors">
+      <div *ngIf="BasicDetails.controls.Employee_Phone.errors.required">Phone Number is required</div> 
+      <div *ngIf="BasicDetails.controls.Employee_Phone.errors.minlength">Phone must be 10 chars</div> 
+      <div *ngIf="BasicDetails.controls.Employee_Phone.errors.maxlength">Phone number is more than 10 chars</div> 
+      <div *ngIf="BasicDetails.controls.Employee_Phone.errors.pattern">Only numvbers are allowed</div> 
+  </div>
+    
+    <label for="Employee_Address">
+      <h2 id="Input_Heading">Address: </h2>
+      <input type="text" id="Employee_Address" placeholder="Enter Current Resedential Address" class="Form_Inputs"
+        formControlName="Employee_Address" >
+    </label>
+
+    <label for="Employee_Gender">
+      <h2 id="Input_Heading">Gender:</h2>
+      <select id="Employee_Gender" formControlName="Employee_Gender" class="Form_Inputs" aria-placeholder="Gender">Gender
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Others">Others</option>
+      </select>
+    </label>
+    <div *ngIf="BasicDetails.controls.Employee_Gender.touched && BasicDetails.controls.Employee_Gender.errors">
+    <div *ngIf="BasicDetails.controls.Employee_Gender.errors.required">Gender is required</div> 
+  </div>
+    
+<!-- 
+    <input formControlName="Bai" value="Bai" class="Image_Input1" type="image">
+    <input formControlName="MilkMan" value="MilkMan" class="Image_Input2" type="image"><br> -->
+
+
+    <p  id="Input_Heading"> Select Type of Employee</p>
+    <label>
+      <input type="radio" id="Bai" formControlName="Employee_Type" value="Bai" >
+      <img class="Image_Input1">
+    </label>
+    <label>
+      <input type="radio" id="MilkMan" formControlName="Employee_Type" value="MilkMan" >
+      <img class="Image_Input2">
+    </label><br>
+    <div *ngIf="submitted && BasicDetails.controls.Employee_Type.errors">
+      <div *ngIf="BasicDetails.controls.Employee_Type.errors.required">Select Bai or Milkman</div> 
+    </div>
+
+
+
+
+
+  <div class="flex-container">
+    <div  class="Reset" (click)="Reset()">Reset</div>
+    <!--<div   class="Submit" (click)="onSubmit()"  [routerLink]="['/baiDetails']" >Submit</div>-->
+    <div   class="Submit" (click)="onSubmit()"  >Submit</div>
+    
+  </div>
+
+
+
+        
+    
+
+
+
+
+  </form>
+
+
+
+
+
+
+
+</body>

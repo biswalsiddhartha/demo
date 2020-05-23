@@ -1,0 +1,7 @@
+{
+  "name": "Kambali",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
